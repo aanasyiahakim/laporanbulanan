@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-md mx-auto my-12 bg-white p-8 rounded-xl shadow-md border border-gray-200">
+    <h2 class="text-2xl font-bold text-center text-blue-900 mb-2">SIM-LaporSMA</h2>
+    <p class="text-center text-xs text-gray-500 mb-6">Sistem Informasi Laporan Bulanan Siswa SMA<br>(Database Terenkripsi)</p>
+    
+    <form method="POST">
+        <div class="mb-4">
+            <label class="block text-sm font-bold text-gray-700 mb-1">Nama Pengguna (Username)</label>
+            <input type="text" name="username" value="guru1" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <div class="mb-6">
+            <label class="block text-sm font-bold text-gray-700 mb-1">Kata Sandi (Password)</label>
+            <input type="password" name="password" value="guru123" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg transition">MASUK APLIKASI</button>
+    </form>
+    
+    <div class="mt-6 text-center text-xs text-gray-400">
+        <p>Akun Demo:</p>
+        <p>Admin: admin / admin123 | Guru: guru1 / guru123 | Siswa: siswa1 / siswa123</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-xl font-bold text-blue-900 mb-6">Form Pengisian & Edit Laporan Bulanan Siswa</h2>
+
+<form method="POST" class="bg-white p-6 rounded-lg shadow border max-w-4xl space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <label class="block text-sm font-bold text-gray-700 mb-1">Pilih Siswa</label>
+            <select name="nis" required class="w-full p-2 border rounded">
+                {% for s in siswa_list %}
+                <option value="{{ s.nis }}">{{ s.nis }} - {{ s.nama }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label class="block text-sm font-bold text-gray-700 mb-1">Bulan</label>
+            <select name="bulan" class="w-full p-2 border rounded">
+                <option value="Januari">Januari</option>
+                <option value="Februari">Februari</option>
+                <option value="Maret">Maret</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="border-t pt-4">
+        <h3 class="font-bold text-sm text-blue-900 mb-2">1. Rekapitulasi Kehadiran</h3>
+        <div class="grid grid-cols-4 gap-4">
+            <input type="number" name="hadir" placeholder="Hadir" value="20" class="p-2 border rounded">
+            <input type="number" name="sakit" placeholder="Sakit" value="0" class="p-2 border rounded">
+            <input type="number" name="izin" placeholder="Izin" value="0" class="p-2 border rounded">
+            <input type="number" name="alpa" placeholder="Alpa" value="0" class="p-2 border rounded">
+        </div>
+    </div>
+
+    <div class="border-t pt-4">
+        <h3 class="font-bold text-sm text-blue-900 mb-2">2. Rata-Rata Nilai Akademik</h3>
+        <input type="number" step="0.1" name="rerata" placeholder="Nilai Rata-rata" value="87.5" class="w-full p-2 border rounded">
+    </div>
+
+    <div class="border-t pt-4">
+        <h3 class="font-bold text-sm text-blue-900 mb-2">3. Penilaian Sikap</h3>
+        <div class="grid grid-cols-2 gap-4">
+            <select name="disiplin" class="p-2 border rounded">
+                <option value="Sangat Baik">Disiplin: Sangat Baik</option>
+                <option value="Baik">Disiplin: Baik</option>
+            </select>
+            <select name="tjawab" class="p-2 border rounded">
+                <option value="Sangat Baik">Tanggung Jawab: Sangat Baik</option>
+                <option value="Baik">Tanggung Jawab: Baik</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="border-t pt-4 space-y-3">
+        <h3 class="font-bold text-sm text-blue-900">4. Catatan & Status</h3>
+        <input type="text" name="prestasi" placeholder="Catatan Prestasi" value="Juara LKTI" class="w-full p-2 border rounded">
+        <input type="text" name="pelanggaran" placeholder="Catatan Pelanggaran" value="Nihil" class="w-full p-2 border rounded">
+        <textarea name="catatan" placeholder="Catatan Wali Kelas" class="w-full p-2 border rounded">Tingkatkan konsistensi belajar pada pelajaran eksak.</textarea>
+        <select name="status" class="w-full p-2 border rounded">
+            <option value="Draf">Draf</option>
+            <option value="Final" selected>Final</option>
+        </select>
+    </div>
+
+    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2 rounded">💾 Simpan Laporan Bulanan</button>
+</form>
+{% endblock %}
